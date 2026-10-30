@@ -2,31 +2,58 @@
   "config": {
     "step": {
       "user": {
-        "title": "Установка Silero TTS",
+        "title": "Сервер Silero TTS",
+        "description": "Введите URL вашего сервера Silero TTS Enhanced Add-on.",
         "data": {
-          "host": "URL сервера (Дополнения)",
-          "language": "Язык",
-          "model_id": "Версия модели",
-          "speaker": "Голос (aidar, baya, xenia, и т.д)",
+          "host": "URL сервера"
+        }
+      },
+      "language": {
+        "title": "Выбор языка",
+        "description": "Выберите язык для синтеза речи.",
+        "data": {
+          "language": "Язык"
+        }
+      },
+      "model": {
+        "title": "Выбор модели",
+        "description": "Выберите версию TTS модели для выбранного языка.",
+        "data": {
+          "model_id": "Модель"
+        }
+      },
+      "voice": {
+        "title": "Настройки голоса",
+        "description": "Настройте голос, частоту дискретизации и параметры произношения.",
+        "data": {
+          "speaker": "Голос",
           "sample_rate": "Частота дискретизации",
-          "put_accent": "Авто-расстановка ударений",
-          "put_yo": "Авто-расстановка буквы Ё"
+          "put_accent": "Ставить знаки ударения",
+          "put_yo": "Ставить 'ё' вместо 'е'"
         }
       }
+    },
+    "error": {
+      "cannot_connect": "Не удалось подключиться к серверу",
+      "unknown": "Произошла неизвестная ошибка"
+    },
+    "abort": {
+      "already_configured": "Эта интеграция уже настроена"
     }
   },
   "options": {
     "step": {
       "init": {
-        "title": "Изменение настроек Silero TTS",
+        "title": "Настройки Silero TTS",
+        "description": "Измените конфигурацию Silero TTS.",
         "data": {
-          "host": "URL сервера (Дополнения)",
-          "language": "Язык по умолчанию",
-          "model_id": "Версия модели по умолчанию",
-          "speaker": "Голос по умолчанию",
-          "sample_rate": "Частота дискретизации (Hz)",
-          "put_accent": "Авто-расстановка ударений",
-          "put_yo": "Авто-расстановка буквы Ё"
+          "host": "URL сервера",
+          "language": "Язык",
+          "model_id": "Модель",
+          "speaker": "Голос",
+          "sample_rate": "Частота дискретизации",
+          "put_accent": "Ставить знаки ударения",
+          "put_yo": "Ставить 'ё' вместо 'е'"
         }
       }
     }
