@@ -2,31 +2,58 @@
   "config": {
     "step": {
       "user": {
-        "title": "Installing Silero TTS",
+        "title": "Silero TTS Server",
+        "description": "Enter the URL of your Silero TTS Enhanced Add-on server.",
         "data": {
-          "host": "Server URL (Add-ons) (e.g. http://192.168.1.114:8014)",
-          "language": "Language",
-          "model_id": "Model version",
-          "speaker": "Voice (aidar, baya, xenia, etc.)",
-          "sample_rate": "Sampling rate",
-          "put_accent": "Auto-accent placement",
-          "put_yo": "Auto-placement of the letter Ё"
+          "host": "Server URL"
+        }
+      },
+      "language": {
+        "title": "Select Language",
+        "description": "Choose the language for text-to-speech synthesis.",
+        "data": {
+          "language": "Language"
+        }
+      },
+      "model": {
+        "title": "Select Model",
+        "description": "Choose the TTS model version for the selected language.",
+        "data": {
+          "model_id": "Model"
+        }
+      },
+      "voice": {
+        "title": "Voice Settings",
+        "description": "Configure voice, sample rate, and pronunciation options.",
+        "data": {
+          "speaker": "Speaker/Voice",
+          "sample_rate": "Sample Rate",
+          "put_accent": "Put accent marks",
+          "put_yo": "Put 'ё' instead of 'е'"
         }
       }
+    },
+    "error": {
+      "cannot_connect": "Failed to connect to the server",
+      "unknown": "An unknown error occurred"
+    },
+    "abort": {
+      "already_configured": "This integration is already configured"
     }
   },
   "options": {
     "step": {
       "init": {
-        "title": "Changing Silero TTS settings",
+        "title": "Silero TTS Options",
+        "description": "Modify your Silero TTS configuration.",
         "data": {
-          "host": "Server URL (Add-ons) (e.g. http://192.168.1.114:8014)",
-          "language": "Default language",
-          "model_id": "Default model version",
-          "speaker": "Default voice",
-          "sample_rate": "Sampling rate (Hz)",
-          "put_accent": "Auto-accent placement",
-          "put_yo": "Auto-placement of the letter Ё"
+          "host": "Server URL",
+          "language": "Language",
+          "model_id": "Model",
+          "speaker": "Speaker/Voice",
+          "sample_rate": "Sample Rate",
+          "put_accent": "Put accent marks",
+          "put_yo": "Put 'ё' instead of 'е'"
         }
       }
     }
