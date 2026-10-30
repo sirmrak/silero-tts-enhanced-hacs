@@ -1,113 +1,41 @@
-# Silero TTS Enhanced - Home Assistant Integration
+[English](README_EN.md) | **Русский**
 
-A modern, UI-configurable Home Assistant integration for Silero TTS. No more YAML editing!
-
-This integration connects directly to the **[Silero TTS Enhanced Engine Add-on](https://github.com/indevor/silero-tts-enhanced-addon)** and exposes it as a native Media Player / Voice Assistant TTS provider in Home Assistant.
-
-## Features
-- ⚙️ **Config Flow (UI):** Set up IPs, languages, voices, and sample rates entirely via the Home Assistant UI.
-- 🗣️ **Voice Assistant Ready:** Fully compatible with Home Assistant's "Assist" feature.
-- 🚀 **Asynchronous & Fast:** Uses non-blocking HTTP requests. No system freezes.
--  **Multi-language:** Supports `ru`, `en`, `de`, `es`, `fr`, and more.
-
-## Installation via HACS
-1. Ensure you have installed the companion [Silero Add-on](https://github.com/indevor/silero-tts-enhanced-addon) and it's running.
-2. Open **HACS** -> **Integrations**.
-3. Click the three dots (top right) -> **Custom repositories**.
-4. Add this repository URL as an **Integration**.
-5. Click **Download**, then **Restart Home Assistant**.
-
-## Setup
-1. Go to **Settings** -> **Devices & Services**.
-2. Click **+ Add Integration** and search for `Silero TTS Enhanced`.
-3. Enter your Add-on Server IP (e.g., `http://192.168.1.114:8014`).
-4. Select your preferred voice and model. Done!
-5. You can select voices and models in the automation settings; see the example.
-6. If a model or voice isn't available in the list, you can enter it manually (for example: v5_5_ru)
-
-[Silero Models list](https://github.com/snakers4/silero-models/blob/master/models.yml#L144)
-
-[Silero English v3 audio samples](https://oobabooga.github.io/silero-samples/)
-
-### Available Models and Speakers
-
-| Language | Model Version | Speakers Count | Speaker Names |
-| :--- | :--- | :---: | :--- |
-| **Russian** | `v5_ru, v5_5_ru` | 5 | aidar, baya, kseniya, xenia, eugene |
-| **Ukrainian** | `v4_ua` | 1 | mykyta |
-| **Uzbek** | `v4_uz` | 1 | dilnavoz |
-| **English** | `v3_en` | 118 | en_0, en_1, ..., en_117 |
-| **Spanish** | `v3_es` | 3 | es_0, es_1, es_2 |
-| **French** | `v3_fr` | 6 | fr_0, fr_1, fr_2, fr_3, fr_4, fr_5 |
-| **German** | `v3_de` | 5 | bernd_ungerer, eva_k, friedrich, hokuspokus, karlsson |
-| **Tatar** | `v3_tt` | 1 | dilyara |
-| **Mongolian** | `v3_xal` | 2 | erdni, delghir |
-
-and more.. see: [Silero Models](https://github.com/snakers4/silero-models/)
-
-## Usage in Automations
-```yaml
-service: tts.speak
-target:
-  entity_id: tts.silero_tts_enhanced
-data:
-  media_player_entity_id: media_player.living_room
-  message: "Hello world, the smart home is ready."
-  language: "en"
-  options:
-    model_id: "v3_en"
-    voice: "en_24"
-```
-## 📝 Acknowledgements & License
-This project is an unofficial wrapper/integration. The core Text-to-Speech neural models are developed and owned by the [Silero Team](https://github.com/snakers4/silero-models).
-The models are published under the **CC BY-NC** (Non-Commercial) license. Please respect the authors' rights and use this integration strictly for personal, non-commercial purposes.
-
------------------------------------------------------------------------
 # Silero TTS Enhanced — интеграция с Home Assistant
 
-Современная интеграция Silero TTS с Home Assistant с возможностью настройки интерфейса. Больше не нужно редактировать YAML!
+Современная интеграция Silero TTS с Home Assistant с возможностью настройки через интерфейс. Больше не нужно редактировать YAML!
 
-Эта интеграция подключается напрямую к **[дополнению Silero TTS Enhanced Engine](https://github.com/indevor/silero-tts-enhanced-addon)** и предоставляет его в качестве встроенного поставщика TTS для медиаплеера / голосового помощника в Home Assistant.
+Эта интеграция подключается напрямую к **дополнению Silero TTS Enhanced Engine** и предоставляет его в качестве встроенного поставщика TTS для медиаплеера / голосового помощника в Home Assistant.
 
 ## Особенности
-- ⚙️ **Настройка (интерфейс):** Настраивайте IP-адреса, языки, голоса и частоту дискретизации полностью через интерфейс Home Assistant.
+
+- ⚙️ **Настройка через интерфейс:** Настраивайте IP-адреса, языки, голоса и частоту дискретизации полностью через интерфейс Home Assistant.
 - 🗣️ **Поддержка голосового помощника:** Полная совместимость с функцией «Assist» Home Assistant.
 - 🚀 **Асинхронность и скорость:** Использует неблокирующие HTTP-запросы. Система не зависает.
--  **Многоязычность:** Поддерживает `ru`, `en`, `de`, `es`, `fr` и другие языки.
+- 🔄 **Динамическое обнаружение моделей:** Автоматически загружает актуальные модели, языки и голоса из официального репозитория Silero. Никаких захардкоженных списков!
+- 🎯 **Контекстный выбор:** Доступные голоса и частоты дискретизации фильтруются в зависимости от выбранной модели.
+- 🛡️ **Отказоустойчивость:** Если при запуске нет доступа к GitHub, интеграция использует безопасные значения по умолчанию и позволяет вводить модели вручную.
+- **Многоязычность:** Поддерживает `ru`, `en`, `de`, `es`, `fr`, `tt`, `uz`, `ua`, `multi` и другие языки.
 
 ## Установка через HACS
-1. Убедитесь, что вы установили сопутствующее [дополнение Silero](https://github.com/indevor/silero-tts-enhanced-addon) и оно запущено.
+
+1. Убедитесь, что вы установили сопутствующее дополнение Silero и оно запущено.
 2. Откройте **HACS** -> **Интеграции**.
 3. Нажмите на три точки (вверху справа) -> **Пользовательские репозитории**.
 4. Добавьте URL этого репозитория в качестве **Интеграции**.
 5. Нажмите **Скачать**, затем **Перезапустить Home Assistant**.
 
 ## Настройка
+
 1. Перейдите в **Настройки** -> **Устройства и службы**.
 2. Нажмите **+ Добавить интеграцию** и найдите `Silero TTS Enhanced`.
-3. Введите IP-адрес вашего сервера дополнения (например, `http://192.168.1.114:8014`).
-4. Выберите предпочтительный голос и модель. Готово!
-5. Голоса и модели можно выбрать в автоматизации см. пример.
-6. Модель и голос можно написать вручню, если он не доступны в списке (например: v5_5_ru)
+3. Следуйте многошаговому мастеру:
+   - Введите IP-адрес вашего сервера дополнения (например, `http://192.168.1.114:8014`).
+   - Выберите предпочтительный язык.
+   - Выберите версию модели.
+   - Настройте голос, частоту дискретизации и параметры произношения.
+4. Готово! Интеграция автоматически загрузит актуальные доступные модели из Silero.
 
-[Список моделей Silero](https://github.com/snakers4/silero-models/blob/master/models.yml#L144)
-
-
-### Модели и голоса
-
-| Language | Model Version | Speakers Count | Speaker Names |
-| :--- | :--- | :---: | :--- |
-| **Russian** | `v5_ru, v5_5_ru` | 5 | aidar, baya, kseniya, xenia, eugene |
-| **Ukrainian** | `v4_ua` | 1 | mykyta |
-| **Uzbek** | `v4_uz` | 1 | dilnavoz |
-| **English** | `v3_en` | 118 | en_0, en_1, ..., en_117 |
-| **Spanish** | `v3_es` | 3 | es_0, es_1, es_2 |
-| **French** | `v3_fr` | 6 | fr_0, fr_1, fr_2, fr_3, fr_4, fr_5 |
-| **German** | `v3_de` | 5 | bernd_ungerer, eva_k, friedrich, hokuspokus, karlsson |
-| **Tatar** | `v3_tt` | 1 | dilyara |
-| **Mongolian** | `v3_xal` | 2 | erdni, delghir |
-
-и другие, смотрите: [Silero Models](https://github.com/snakers4/silero-models/)
+## Использование в автоматизациях
 
 ```yaml
 service: tts.speak
@@ -116,11 +44,57 @@ target:
 data:
   media_player_entity_id: media_player.living_room
   message: "Внимание. Температура процессора достигла 80 градусов."
+  language: "ru"
   options:
     model_id: "v5_ru"
     voice: "xenia"
     put_accent: true
 ```
+
+### Доступные модели и голоса
+
+Интеграция динамически загружает модели из официального [репозитория Silero Models](https://github.com/snakers4/silero-models). На данный момент поддерживаются:
+
+| Язык | Версии моделей | Голоса |
+| :-- | :-- | :-- |
+| **Русский** | v5_ru, v5_5_ru, v5_6_ru, v4_ru, v3_1_ru | aidar, baya, kseniya, xenia, eugene и другие |
+| **Английский** | v3_en, v3_en_indic | en_0, en_1, ..., en_117 |
+| **Немецкий** | v3_de, thorsten_v2 | bernd_ungerer, eva_k, friedrich, hokuspokus, karlsson, thorsten |
+| **Испанский** | v3_es, tux_v2 | es_0, es_1, es_2, tux |
+| **Французский** | v3_fr, gilles_v2 | fr_0, fr_1, ..., fr_5, gilles |
+| **Украинский** | v4_ua, v3_ua | mykyta |
+| **Узбекский** | v4_uz, v3_uz | dilnavoz |
+| **Татарский** | v3_tt | dilyara |
+| **Монгольский** | v3_xal | erdni, delghir |
+| **Мультиязычный** | multi_v2 | aidar, baya, kseniya, irina, ruslan, natasha, thorsten, tux, gilles, lj, dilyara |
+
+*Примечание: Новые модели автоматически становятся доступны, когда Silero их выпускает. Обновление интеграции не требуется!*
+
+## Как это работает
+
+Интеграция при каждом запуске Home Assistant в фоновом режиме загружает файл `models.yml` из официального репозитория Silero Models. Этот файл содержит актуальную информацию обо всех доступных моделях, языках, голосах и поддерживаемых частотах дискретизации.
+
+На основе этих данных формируются динамические списки в интерфейсе настройки, что позволяет:
+- Использовать новые модели сразу после их выхода
+- Видеть только те голоса и частоты, которые поддерживаются выбранной моделью
+- Вручную вводить название модели, если она еще не попала в YAML
+
+## Устранение неполадок
+
+### Интеграция не загружает модели
+
+Если при настройке вы видите только базовый список моделей, проверьте:
+- Доступность интернета на сервере Home Assistant
+- Логи Home Assistant на наличие ошибок загрузки `models.yml`
+- При необходимости можно ввести название модели вручную через опцию "Custom value" в селекторе
+
+### Ошибки воспроизведения
+
+- Убедитесь, что дополнение Silero TTS Enhanced запущено
+- Проверьте правильность URL сервера (должен быть доступен из сети Home Assistant)
+- Проверьте, что выбранная модель и голос поддерживают указанную частоту дискретизации
+
 ## 📝 Лицензия и Авторы
-Этот проект является неофициальной интеграцией-оберткой. Сами нейросетевые модели синтеза речи разработаны и принадлежат команде [Silero Team](https://github.com/snakers4/silero-models).
+
+Этот проект является неофициальной интеграцией-оберткой. Сами нейросетевые модели синтеза речи разработаны и принадлежат команде Silero Team.
 Модели распространяются под некоммерческой лицензией **CC BY-NC**. Пожалуйста, уважайте труд авторов и используйте этот проект только в некоммерческих и личных целях.
