@@ -1,13 +1,13 @@
 {
   "domain": "silero_tts_enhanced",
   "name": "Silero TTS Enhanced",
-  "codeowners": ["@indevor"],
+  "codeowners": ["@indevor", "@sirmrak"],
   "config_flow": true,
   "dependencies": [],
-  "documentation": "https://github.com/indevor/silero-tts-enhanced-hacs",
+  "documentation": "https://github.com/sirmrak/silero-tts-enhanced-hacs",
   "integration_type": "hub",
   "iot_class": "local_polling",
-  "issue_tracker": "https://github.com/indevor/silero-tts-enhanced-hacs/issues",
-  "requirements": [],
-  "version": "1.0.2"
+  "issue_tracker": "https://github.com/sirmrak/silero-tts-enhanced-hacs/issues",
+  "requirements": ["pyyaml==6.0.1"],
+  "version": "2.0.0"
 }
