@@ -9,5 +9,6 @@
   "iot_class": "local_polling",
   "issue_tracker": "https://github.com/sirmrak/silero-tts-enhanced-hacs/issues",
   "requirements": ["pyyaml==6.0.1"],
-  "version": "2.0.0"
+  "version": "2.0.2",
+  "category": "voice"
 }
