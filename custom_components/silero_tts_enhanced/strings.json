@@ -2,31 +2,58 @@
   "config": {
     "step": {
       "user": {
-        "title": "Configure Silero TTS",
+        "title": "Silero TTS Server",
+        "description": "Enter the URL of your Silero TTS Enhanced Add-on server.",
         "data": {
-          "host": "Server URL",
-          "language": "Language",
-          "model_id": "Model ID",
-          "speaker": "Speaker",
+          "host": "Server URL"
+        }
+      },
+      "language": {
+        "title": "Select Language",
+        "description": "Choose the language for text-to-speech synthesis.",
+        "data": {
+          "language": "Language"
+        }
+      },
+      "model": {
+        "title": "Select Model",
+        "description": "Choose the TTS model version for the selected language.",
+        "data": {
+          "model_id": "Model"
+        }
+      },
+      "voice": {
+        "title": "Voice Settings",
+        "description": "Configure voice, sample rate, and pronunciation options.",
+        "data": {
+          "speaker": "Speaker/Voice",
           "sample_rate": "Sample Rate",
-		  "put_accent": "Put accent",
-          "put_yo": "Put yo"
+          "put_accent": "Put accent marks",
+          "put_yo": "Put 'ё' instead of 'е'"
         }
       }
+    },
+    "error": {
+      "cannot_connect": "Failed to connect to the server",
+      "unknown": "An unknown error occurred"
+    },
+    "abort": {
+      "already_configured": "This integration is already configured"
     }
   },
   "options": {
     "step": {
       "init": {
-        "title": "Configure Silero TTS",
+        "title": "Silero TTS Options",
+        "description": "Modify your Silero TTS configuration.",
         "data": {
           "host": "Server URL",
           "language": "Language",
-          "model_id": "Model ID",
-          "speaker": "Speaker",
+          "model_id": "Model",
+          "speaker": "Speaker/Voice",
           "sample_rate": "Sample Rate",
-          "put_accent": "Put accent",
-          "put_yo": "Put yo"
+          "put_accent": "Put accent marks",
+          "put_yo": "Put 'ё' instead of 'е'"
         }
       }
     }
