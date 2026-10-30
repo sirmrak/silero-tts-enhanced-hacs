@@ -1,9 +1,6 @@
 {
   "domain": "silero_tts_enhanced",
   "name": "Silero TTS Enhanced",
-  "categories": [
-    "tts"
-  ],
   "codeowners": [
     "@indevor",
     "@sirmrak"
